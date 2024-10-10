@@ -308,3 +308,94 @@ This example shows how to perform a action and displays the feedback and result 
 ### ROS2 Examples
 
 [Don't hit the Wall](docs/example-dont-hit-the-wall/example-dont-hit-the-wall.md)
+
+### Install edu-nodered-ros2-plugin ubuntu 22.04 (without docker)
+
+---------- Install ROS2 Humble--------
+
+use instruction official
+
+----------delete nodejs:---------
+    
+    apt-get remove -y \
+        nodejs \
+        libnode-dev \
+        libnode72
+
+----------- install ... :----------
+    
+    apt-get install -y \
+        cmake \
+        curl \
+        g++ \
+        gcc \
+        make \
+        git \
+        libasio-dev \
+        libboost-dev \
+        libboost-program-options-dev \
+        libboost-system-dev \
+        libcurl4-openssl-dev \
+        libcurlpp-dev \
+        libssl-dev \
+        libwebsocketpp-dev \
+        libyaml-cpp-dev \ 
+        python3-pip \
+        wget && \
+    pip3 install -U \
+        colcon-common-extensions \
+        vcstool
+
+-------install nvm ------ 
+
+use https://github.com/nvm-sh/nvm
+
+------install nodejs used nvm ----
+
+nvm install 18
+
+-----install globally node-red -----------
+
+npm i -g node-red 
+
+------install globally yarn ----------
+
+npm i -g yarn
+
+------install locally the needs files ---
+
+cd ~/.node-red
+
+yarn add rclnodejs
+
+yarn add cron
+
+yarn add node-red-dashboard
+
+------install locally edu-nodered-ros2-plugin ----
+
+cd ~
+
+git clone https://github.com/EduArt-Robotik/edu_nodered_ros2_plugin.git 
+
+cd ~/.node-red
+
+yarn add ../edu_nodered_ros2_plugin
+
+-------addition -----------
+
+cd ~/.node-red
+
+rm package-lock.json
+
+yarn install
+
+-------- run node-red -----
+
+cd ~
+node-red
+
+----testing -----
+
+use https://github.com/eProsima/node-red-ros2-plugin#demo-steps :+1: 
+
